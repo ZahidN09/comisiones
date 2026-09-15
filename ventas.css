@@ -1,35 +1,226 @@
+/* =========================================================
+   Calculadora de Comisiones — Estilo financiero ejecutivo
+   Responsive: móvil, tablet y PC
+   ========================================================= */
+
+:root {
+    --bg: #0b1120;
+    --panel: #1e293b;
+    --panel-dark: #0f172a;
+    --border: rgba(148, 163, 184, 0.18);
+    --text: #e2e8f0;
+    --text-strong: #f8fafc;
+    --muted: #94a3b8;
+    --accent: #22c55e;
+    --accent-hover: #16a34a;
+    --gold: #facc15;
+    --radius: 14px;
+    --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.9);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
 body {
-    font-family: Arial;
-    background-color: #0f172a;
-    color: white;
+    margin: 0;
+    min-height: 100vh;
+    padding: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.45;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(250, 204, 21, 0.06), transparent 40%),
+        var(--bg);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
+/* Tarjeta principal */
 .contenedor {
-    background-color: #1e293b;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    padding: clamp(20px, 5vw, 36px);
+    background: linear-gradient(180deg, #1e293b 0%, #172033 100%);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+}
+
+/* Franja superior decorativa */
+.contenedor::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+}
+
+h1 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(1.35rem, 4vw, 1.8rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: var(--text-strong);
+}
+
+h2 {
+    margin: 1.5rem 0 1rem;
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    letter-spacing: -0.01em;
+    color: var(--text-strong);
+}
+
+label {
+    display: block;
+    margin: 0 0 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
 }
 
 input {
     width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-strong);
+    background: var(--panel-dark);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
+input:focus {
+    background: #0b1120;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
 }
 
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #22c55e;
+    margin-top: 4px;
+    padding: 14px 16px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #052e16;
+    background: linear-gradient(180deg, var(--accent), var(--accent-hover));
     border: none;
-    color: white;
+    border-radius: 10px;
     cursor: pointer;
+    box-shadow: 0 10px 20px -10px rgba(34, 197, 94, 0.6);
+    transition: transform 0.15s, box-shadow 0.2s, filter 0.2s, color 0.2s;
 }
 
 button:hover {
-    background-color: #16a34a;
+    color: #f0fdf4;
+    background: linear-gradient(180deg, var(--accent-hover), #15803d);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 24px -12px rgba(34, 197, 94, 0.8);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Resultados */
+p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px 12px;
+    margin: 0 0 8px;
+    padding: 11px 12px;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 10px;
+}
+
+p:last-of-type {
+    margin-bottom: 0;
+    color: var(--text-strong);
+    font-weight: 700;
+    background: rgba(34, 197, 94, 0.08);
+    border-color: rgba(34, 197, 94, 0.35);
+}
+
+span {
+    font-weight: 700;
+    color: var(--text-strong);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+p:last-of-type span {
+    font-size: 1.1em;
+    color: #4ade80;
+}
+
+/* =========================================================
+   Tablet / PC: formulario en dos columnas
+   ========================================================= */
+@media (min-width: 640px) {
+    .contenedor {
+        display: grid;
+        grid-template-columns: minmax(130px, auto) 1fr;
+        column-gap: 16px;
+        align-items: center;
+        max-width: 620px;
+    }
+
+    h1,
+    button,
+    h2,
+    p {
+        grid-column: 1 / -1;
+    }
+
+    label {
+        margin-bottom: 0;
+    }
+
+    input {
+        margin-bottom: 14px;
+    }
+
+    button {
+        margin-top: 8px;
+    }
+}
+
+/* =========================================================
+   Accesibilidad: menos movimiento
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
 }

@@ -10,19 +10,19 @@ function calcularComision(numeroVentas, precioProducto) {
     return comision;
 }
 
-function calcular(){
+function calcular() {
 
     let sueldoBase = recuperarFloat("txtSueldoBase");
     let ventas = recuperarFloat("txtVentas");
     let precio = recuperarFloat("txtPrecio");
 
     // Calculamos la comision
-    let comision = calcularComision(ventas,precio);
-    
+    let comision = calcularComision(ventas, precio);
+
     // Calculamos el sueldo total
     let total = sueldoBase + comision;
 
-    mostarEnSpan("spSueldoBase",sueldoBase);
-    mostarEnSpan("spComision",comision);
-    mostarEnSpan("spTotal",total);
+    mostarEnSpan("spSueldoBase", sueldoBase);
+    mostarEnSpan("spComision", comision);
+    mostarEnSpan("spTotal", total);
 }

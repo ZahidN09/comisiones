@@ -1,22 +1,22 @@
-function recuperarTexto(idComponente){
+function recuperarTexto(idComponente) {
     let cmp = document.getElementById(idComponente);
     let valor = cmp.value;
-    return  valor;
+    return valor;
 }
 
-function recuperarFloat(idComponente){
+function recuperarFloat(idComponente) {
     let texto = recuperarTexto(idComponente);
     let valor = parseFloat(texto);
-    return  valor;
+    return valor;
 }
 
-function recuperarInt(idComponente){
+function recuperarInt(idComponente) {
     let texto = recuperarTexto(idComponente);
     let valor = parseInt(texto);
-    return  valor;
+    return valor;
 }
 
-function mostarEnSpan(idComponente,valor){
+function mostarEnSpan(idComponente, valor) {
     let cmp = document.getElementById(idComponente);
     cmp.textContent = valor;
 }
