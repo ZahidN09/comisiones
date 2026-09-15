@@ -12,19 +12,9 @@ function calcularComision(numeroVentas, precioProducto) {
 
 function calcular(){
 
-    // // Recuperamos propiedades de cajas de texto
-    // let cmpSueldoBase = document.getElementById("txtSueldoBase");
-    // let cmpVentas = document.getElementById("txtVentas");
-    // let cmpPrecio = document.getElementById("txtPrecio");
-    
-    // // Recuperamos el valor y convertimos a float
-    // let sueldoBase = parseFloat(cmpSueldoBase.value);
-    // let ventas = parseFloat(cmpVentas.value);
-    // let precio = parseFloat(cmpPrecio.value);
-
-    let sueldoBase = parseFloat(recuperarTexto("txtSueldoBase"));
-    let ventas = parseFloat(recuperarTexto("txtVentas"));
-    let precio = parseFloat(recuperarTexto("txtPrecio"));
+    let sueldoBase = recuperarFloat("txtSueldoBase");
+    let ventas = recuperarFloat("txtVentas");
+    let precio = recuperarFloat("txtPrecio");
 
     // Calculamos la comision
     let comision = calcularComision(ventas,precio);
@@ -32,11 +22,7 @@ function calcular(){
     // Calculamos el sueldo total
     let total = sueldoBase + comision;
 
-    let spSueldoBase = document.getElementById("spSueldoBase");
-    let spComision = document.getElementById("spComision");
-    let spTotal = document.getElementById("spTotal");
-
-    spSueldoBase.textContent = sueldoBase;
-    spComision.textContent = comision;
-    spTotal.textContent = total;
+    mostarEnSpan("spSueldoBase",sueldoBase);
+    mostarEnSpan("spComision",comision);
+    mostarEnSpan("spTotal",total);
 }
