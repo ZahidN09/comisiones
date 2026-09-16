@@ -224,3 +224,27 @@ p:last-of-type span {
         animation: none !important;
     }
 }
+
+.error-msg {
+    color: red;
+    font-style: italic;
+    font-size: 0.85em;
+    display: block;      /* fuerza salto de línea debajo del input */
+    margin-top: 3px;
+    min-height: 1em;     /* evita saltos de layout al mostrar/ocultar */
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Asegura que ocupe el ancho de su columna */
+}
+
+/* Opcional: Si tu contenedor principal usa Flexbox, asegúrate de alinear las etiquetas arriba */
+label {
+    align-self: flex-start; /* O center, dependiendo de tu diseño base */
+    margin-top: 10px; /* Espacio para alinear visualmente con el input */
+}
+
+.input-group input {
+    width: 100%; /* El input ocupa todo el ancho de su columna */
+}

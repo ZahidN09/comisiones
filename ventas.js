@@ -10,6 +10,33 @@ function calcularComision(numeroVentas, precioProducto) {
     return comision;
 }
 
+function validarVentas() {
+    let numeroVentasStr = recuperarTexto("txtVentas");
+    if (numeroVentasStr.length > 5) {
+        alert("Máximo 5 caracteres");
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function validarInput(input) {
+    const valor = input.value.trim();
+    const spanError = document.getElementById("error-" + input.id);
+    let mensaje = "";
+
+    if (valor === "") {
+        mensaje = "Este campo no puede estar vacío.";
+    } else if (!/^\d+$/.test(valor)) {
+        mensaje = "Solo se permiten números.";
+    } else if (valor.length > 5) {
+        mensaje = "Máximo 5 dígitos permitidos.";
+    }
+
+    spanError.textContent = mensaje;
+    return mensaje === ""; // true = válido
+}
+
 function calcular() {
 
     let sueldoBase = recuperarFloat("txtSueldoBase");
